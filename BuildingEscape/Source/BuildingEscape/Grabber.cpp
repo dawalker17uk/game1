@@ -2,6 +2,7 @@
 
 #include "Grabber.h"
 #include "Engine/World.h"
+#include "DrawDebugHelpers.h"
 
 #define OUT
 
@@ -42,9 +43,24 @@ void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompone
 		OUT PlayerViewPointRotator
 		);
 
-		UE_LOG(LogTemp, Warning, TEXT("Location: %s , Rotator: %s"), 
-			*PlayerViewPointLocation.ToString(), 
-			*PlayerViewPointRotator.ToString())
+		//UE_LOG(LogTemp, Warning, TEXT("Location: %s , Rotator: %s"), 
+		//	*PlayerViewPointLocation.ToString(), 
+		//	*PlayerViewPointRotator.ToString()
+		//)
+
+		// Draw a red, debug, trace
+		FVector LineTraceEnd = PlayerViewPointLocation + (PlayerViewPointRotator.Vector() * m_reach);
+	
+		DrawDebugLine(
+			GetWorld(),
+			PlayerViewPointLocation,
+			LineTraceEnd,
+			FColor(255,0,0),
+			false,
+			0.f,
+			0,
+			10.0f
+		);
 	}
 }
 
