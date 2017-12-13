@@ -4,8 +4,12 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "Grabber.generated.h"
+#include "PhysicsEngine/PhysicsHandleComponent.h"
+#include "Components/InputComponent.h"
 
+
+
+#include "Grabber.generated.h"
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class BUILDINGESCAPE_API UGrabber : public UActorComponent
@@ -27,5 +31,18 @@ public:
 private:
 
 	float m_reach = 100.0f;
+
+	UPhysicsHandleComponent* PhisicsHandle = nullptr;
+
+	UInputComponent* InputComponent = nullptr;
 	
+	// Ra-cast and grab what's in reach
+	void Grab();
+	void Released();
+
+	// Find attached physics handle
+	void FindPhysicsHandleComponent();
+
+	// Setup (assumed) attached input component
+	void SetupInputComponent();
 };
