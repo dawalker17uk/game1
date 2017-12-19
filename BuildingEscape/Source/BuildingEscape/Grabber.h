@@ -32,7 +32,7 @@ private:
 
 	float m_reach = 100.0f;
 
-	UPhysicsHandleComponent* PhisicsHandle = nullptr;
+	UPhysicsHandleComponent* PhysicsHandle = nullptr;
 
 	UInputComponent* InputComponent = nullptr;
 	
@@ -45,4 +45,8 @@ private:
 
 	// Setup (assumed) attached input component
 	void SetupInputComponent();
+
+	// Return hit for first physics body in reach
+	FHitResult GetFirstPhysicsBodyInReach() const;
+
 };
