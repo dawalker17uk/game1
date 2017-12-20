@@ -17,3 +17,6 @@
 *VC.db
 
 *.ipch
+*VC.opendb
+*.db-shm
+*.db-wal
