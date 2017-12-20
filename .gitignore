@@ -17,6 +17,7 @@
 *VC.db
 
 *.ipch
-*VC.opendb
+*.VC.opendb
 *.db-shm
 *.db-wal
+*.sln
